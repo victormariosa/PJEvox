@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 05-Out-2016 às 20:47
+-- Generation Time: 27-Set-2016 às 00:33
 -- Versão do servidor: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -33,6 +33,19 @@ CREATE TABLE IF NOT EXISTS `categoriacurso` (
   `ativo` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+`id_usuario` int(11) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `senha` varchar(10) NOT NULL,
+  `ativo` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -44,6 +57,12 @@ ALTER TABLE `categoriacurso`
  ADD PRIMARY KEY (`ID_curso`);
 
 --
+-- Indexes for table `usuario`
+--
+ALTER TABLE `usuario`
+ ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -52,6 +71,11 @@ ALTER TABLE `categoriacurso`
 --
 ALTER TABLE `categoriacurso`
 MODIFY `ID_curso` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
