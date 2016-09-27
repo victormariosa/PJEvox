@@ -25,7 +25,7 @@ public class PerfilDAO {
     public boolean cadastrarEmpregado(Perfil perfil) throws ClassNotFoundException{
         try{
             Class.forName("com.mysql.jdbc.Drvier");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rh","root","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/rh","root","");
             
             String query = "INSERT INTO Pefil (id_pefil, nome, descricao, ativo) VALUES (?,?,?,?))";
             PreparedStatement pstm = conn.prepareStatement(query);
