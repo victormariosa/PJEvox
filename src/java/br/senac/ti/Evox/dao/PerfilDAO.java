@@ -33,6 +33,19 @@ public class PerfilDAO {
             pstm.setString (2, perfil.getDescricao());
             pstm.setBoolean (3, perfil.isAtivo());
             
+             int  r = pstm.executeUpdate();
+             
+
+           if(r>0)
+           {
+            return true;
+                    
+           }else{
+            
+             return false;
+           
+           }
+           
         } catch (SQLException ex) {
             ex.printStackTrace();   
         }
