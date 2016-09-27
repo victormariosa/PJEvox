@@ -21,7 +21,7 @@ public class CategoriaMaterialDAO {
             pstm.setInt(1, categoriaMaterial.getNome());
             pstm.setInt(2, categoriaMaterial.getId_categoria());
             pstm.setInt(3, categoriaMaterial.getDescricao());
-            pstm.setBoolean(4, categoriaMaterial.getAtivo());
+            pstm.setBoolean(4, categoriaMaterial.isAtivo());
 
             int r = pstm.executeUpdate();
 
@@ -53,7 +53,7 @@ public class CategoriaMaterialDAO {
             pstm.setInt(1, categoriaMaterial.getNome());
             pstm.setInt(2, categoriaMaterial.getId_categoria());
             pstm.setInt(3, categoriaMaterial.getDescricao());
-            pstm.setBoolean(4, categoriaMaterial.getAtivo());
+            pstm.setBoolean(4, categoriaMaterial.isAtivo());
 
             ResultSet r = pstm.executeQuery();
 
