@@ -1,7 +1,7 @@
 package br.senac.ti.Evox.bean;
 
 public class Perfil {
-    public class perfil{
+    
         
         private int id;
         private String nome;
@@ -32,7 +32,7 @@ public class Perfil {
             this.descricao = descricao;
         }
 
-        public boolean getAtivo() {
+        public boolean isAtivo() {
             return ativo;
         }
 
@@ -40,5 +40,5 @@ public class Perfil {
             this.ativo = ativo;
         }
         
-    }
+    
 }
