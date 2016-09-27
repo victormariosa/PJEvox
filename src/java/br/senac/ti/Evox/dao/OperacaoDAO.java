@@ -111,7 +111,7 @@ public class OperacaoDAO {
                 Operacao operacao = new Operacao();
                 operacao.setId(rs.getInt("id_Operacao"));
                 operacao.setNome(rs.getString("nome"));
-                operacao.setdescricao(rs.getString("descricao"));
+                operacao.setDescricao(rs.getString("descricao"));
                
                 listaOperacao.add(operacao);
             }
