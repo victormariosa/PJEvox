@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senac.ti.Evox.servlet;
+package br.senac.ti.Evox.dao;
 
 import br.senac.ti.Evox.bean.Operacao;
 import java.sql.Connection;
