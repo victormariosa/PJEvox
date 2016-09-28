@@ -3,17 +3,17 @@ package br.senac.ti.Evox.bean;
 public class Perfil {
     
         
-        private int id;
+        private int id_Pefil;
         private String nome;
         private String descricao; 
         private boolean ativo;
 
-        public int getId() {
-            return id;
+        public int getid_Pefil() {
+            return id_Pefil;
         }
 
-        public void setId(int id) {
-            this.id = id;
+        public void setid_Pefil(int id_Pefil) {
+            this.id_Pefil = id_Pefil;
         }
 
         public String getNome() {
