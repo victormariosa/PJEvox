@@ -20,10 +20,10 @@ import java.util.List;
  * @author Senacrio
  */
 public class UsuarioDAO {
-   
-    public boolean adicionarUsuario(Usuario usuario) throws SQLException{
-        
-         try {
+
+    public boolean adicionarUsuario(Usuario usuario) throws SQLException {
+
+        try {
             //GERENCIAR  CONEXAO
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoxdb", "root", "");
 
@@ -32,8 +32,7 @@ public class UsuarioDAO {
             pstm.setString(1, usuario.getNome());
             pstm.setString(2, usuario.getSenha());
             pstm.setString(3, usuario.getUsers());
-        
-            
+
             int r = pstm.executeUpdate();
 
             if (r > 0) {
@@ -44,15 +43,14 @@ public class UsuarioDAO {
                 return false;
 
             }
-    }catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return false;
-    
-}
-    
-     public boolean atualizarUsuario(Usuario usuario) {
 
+    }
+
+    public boolean atualizarUsuario(Usuario usuario) {
         try {
             //GERENCIAR  CONEXAO
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoxdb",
@@ -65,8 +63,8 @@ public class UsuarioDAO {
             pstm.setString(3, usuario.getUsers());
 
             ResultSet r = pstm.executeQuery();
-    
-     if (r.next()) {
+
+            if (r.next()) {
                 return true;
 
             } else {
@@ -78,10 +76,10 @@ public class UsuarioDAO {
 
         }
         return false;
-          
-     }
-     
-      public boolean deletarUsuario(int id) throws SQLException {
+
+    }
+
+    public boolean deletarUsuario(int id) throws SQLException {
 
         try {
             //GERENCIAR  CONEXAO
@@ -93,8 +91,8 @@ public class UsuarioDAO {
             pstm.setInt(1, id);
 
             int r = pstm.executeUpdate();
-            
-             if (r > 0) {
+
+            if (r > 0) {
                 return true;
 
             } else {
@@ -102,16 +100,16 @@ public class UsuarioDAO {
                 return false;
 
             }
-             
-             } catch (SQLException ex) {
+
+        } catch (SQLException ex) {
             ex.printStackTrace();
 
         }
         return false;
 
     }
-      
-      public List<Usuario> getUsuario() throws ClassNotFoundException {
+
+    public List<Usuario> getUsuario() throws ClassNotFoundException {
 
         try {
 
@@ -133,10 +131,11 @@ public class UsuarioDAO {
                 usuario.setNome(rs.getString("nome"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setSenha(rs.getString("usuario"));
-                
+
                 listaUsuario.add(usuario);
 
-            }return listaUsuario;
+            }
+            return listaUsuario;
 
         } catch (SQLException ex) {
             ex.printStackTrace();
