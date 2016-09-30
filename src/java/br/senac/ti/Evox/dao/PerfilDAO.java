@@ -31,7 +31,7 @@ public class PerfilDAO {
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setString (1, perfil.getNome());
             pstm.setString (2, perfil.getDescricao());
-            pstm.setBoolean (3, perfil.isAtivo());
+            pstm.setString (3, perfil.getAtivo());
             
              int  r = pstm.executeUpdate();
              
@@ -59,7 +59,7 @@ public class PerfilDAO {
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setString (1, perfil.getNome());
             pstm.setString (2, perfil.getDescricao());
-            pstm.setBoolean (3, perfil.isAtivo());
+            pstm.setString (3, perfil.getAtivo());
             
             
             ResultSet r = pstm.executeQuery();
