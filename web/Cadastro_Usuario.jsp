@@ -17,13 +17,43 @@
     
     <form action="UsuarioServlet" >
     
-        Nome:
-        <input type="text" name="txtnome" />
-        Senha:
-        <input type="text" name="txtsenha" />
+        <table border="0">
         
-        <input type="submit" />
-    
+            <thead>
+                <tr>
+                    <th>Cadastre-se</th>
+                    
+                </tr>
+                
+            </thead>
+            
+            <tbody>
+            <tr>
+                <td>Nome:</td>
+                <td><input type="text" name="txtnome" /></td>
+            </tr>
+            <tr>
+               
+                <td> Senha:</td>
+                <td><input type="password" name="txtsenha" /></td>
+            </tr>
+            
+            
+            <tr>
+            
+            <select>
+                
+                <option value="admin">Administrador</option>
+                <option value="cliente">cliente</option>
+                        
+                
+            </select>
+                
+            </tr>
+            <tr>
+                <td><input type="submit" value="entrar"/></td>
+   
+            </tr>    
     </form>    
         
     </center>    
