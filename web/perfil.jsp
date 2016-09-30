@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="PerfilServlet"  methos="POST" name="cad">
+        <form action="PerfilServlet"  methos="get" name="cad">
             <table>
                 <tr>
                     <td><label>Nome:</label></td><td><input type="text" maxlength="30" name="txtNome" placeholder="insira o nome." required=""></td>
