@@ -31,23 +31,32 @@ public class UsuarioServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        String login = request.getParameter("txtLogin");
+        String password = request.getParameter("txtSenha");
+        String users = request.getParameter("usuarios");
+
+        
+        if (login(login,password,users)) {
+            
+            
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/perfilservlet");
+            rd.forward(request, response);
+            
+
+        } else {
+
+           
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/Cadastro_Usuario.jsp");
+            rd.include(request, response);
+             out.println("<font color=red>Senha ou usuário errado.</font>");
+
         }
+
     }
+    
+  
+    
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

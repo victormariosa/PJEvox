@@ -15,7 +15,7 @@ public class Usuario {
     private String nome;
     private String senha;
     private boolean ativo;
-    
+    private String users;
     
     public void setNome(String nome){
         this.nome = nome;
@@ -47,6 +47,20 @@ public class Usuario {
     
     public boolean getAtivo(){
         return ativo;
+    }
+
+    /**
+     * @return the users
+     */
+    public String getUsers() {
+        return users;
+    }
+
+    /**
+     * @param users the users to set
+     */
+    public void setUsers(String users) {
+        this.users = users;
     }
     
 }

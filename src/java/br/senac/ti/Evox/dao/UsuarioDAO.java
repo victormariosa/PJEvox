@@ -27,11 +27,11 @@ public class UsuarioDAO {
             //GERENCIAR  CONEXAO
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoxdb", "root", "");
 
-            String query = "INSERT INTO Usuario (nome, senha) VALUES (?,?)";
+            String query = "INSERT INTO Usuario (nome, senha, users) VALUES (?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setString(1, usuario.getNome());
             pstm.setString(2, usuario.getSenha());
-            
+            pstm.setString(3, usuario.getUsers());
         
             
             int r = pstm.executeUpdate();
@@ -58,11 +58,11 @@ public class UsuarioDAO {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoxdb",
                     "root", "");
 
-            String query = "UPDATE Usuario SET nome =?, senha =? WHERE id = ?";
+            String query = "UPDATE Usuario SET nome =?, senha =?, users=? WHERE id = ?";
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setString(1, usuario.getNome());
             pstm.setString(2, usuario.getSenha());
-            
+            pstm.setString(3, usuario.getUsers());
 
             ResultSet r = pstm.executeQuery();
     
@@ -132,7 +132,7 @@ public class UsuarioDAO {
                 usuario.setId(rs.getInt("id"));
                 usuario.setNome(rs.getString("nome"));
                 usuario.setSenha(rs.getString("senha"));
-                
+                usuario.setSenha(rs.getString("usuario"));
                 
                 listaUsuario.add(usuario);
 

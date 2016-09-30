@@ -41,10 +41,10 @@
             
             <tr>
             
-            <select>
+            <select name="usuarios">
                 
-                <option value="admin">Administrador</option>
-                <option value="cliente">cliente</option>
+                <option>Administrador</option>
+                <option>cliente</option>
                         
                 
             </select>
