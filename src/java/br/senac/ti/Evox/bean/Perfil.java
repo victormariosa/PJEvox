@@ -6,7 +6,7 @@ public class Perfil {
         private int id_Pefil;
         private String nome;
         private String descricao; 
-        private String ativo;
+        private boolean ativo;
 
         public int getid_Pefil() {
             return id_Pefil;
@@ -32,11 +32,11 @@ public class Perfil {
             this.descricao = descricao;
         }
 
-        public String getAtivo() {
+        public boolean getAtivo() {
             return ativo;
         }
 
-        public void setAtivo(String ativo) {
+        public void setAtivo(boolean ativo) {
             this.ativo = ativo;
         }
         

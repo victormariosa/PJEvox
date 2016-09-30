@@ -5,13 +5,18 @@
  */
 package br.senac.ti.Evox.servlet;
 
+import br.senac.ti.Evox.bean.Perfil;
+import br.senac.ti.Evox.dao.PerfilDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,10 +35,38 @@ public class PerfilServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            boolean resposta;
+            String respST, resultado;
+            
+            Perfil pf = new Perfil();
+            
+            pf.setNome(request.getParameter("txtNome"));
+            pf.setDescricao(request.getParameter("txtDescricao"));
+            
+            respST = request.getParameter("rdbSN");
+            
+            PerfilDAO dao = new PerfilDAO();
+            
+            if(respST .equals("S")){
+                pf.setAtivo(true);
+            }else if(respST .equals("N")){
+                pf.setAtivo(false);
+            }
+            
+            resultado = null;
+            
+            resposta = dao.cadastrarPerfil(pf); 
+            
+            if(resposta){
+                resultado = "OK";
+            }else{
+                resultado = "ERRO";
+            }
+            
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -41,7 +74,7 @@ public class PerfilServlet extends HttpServlet {
             out.println("<title>Servlet PerfilServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PerfilServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet PerfilServlet at " + resultado + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -61,7 +94,11 @@ public class PerfilServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PerfilServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -75,7 +112,11 @@ public class PerfilServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PerfilServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

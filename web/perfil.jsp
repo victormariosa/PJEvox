@@ -21,10 +21,10 @@
                     <td><label>Descrição:</label></td><td><textarea cols="21" name="txtDescricao"></textarea></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="FAD" value="S">Ativo</td>
+                    <td><input type="radio" name="rdbSN" value="S">Ativo</td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="FAD" value="N">Desativado</td>
+                    <td><input type="radio" name="rdbSN" value="N">Desativado</td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="enviar"></td>
