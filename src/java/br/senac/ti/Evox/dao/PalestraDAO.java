@@ -23,11 +23,13 @@ public class PalestraDAO {
     public boolean adicionarPalestra(Palestra palestra) throws ClassNotFoundException, SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/banco", "", "");
-            String query = "INSERT INTO palestra  (nome,descricao) VALUES (?,?)";
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoxdb","root", "");
+            String query = "INSERT INTO palestra (nome,descricao,ativo,id_categoria_palestra) VALUES (?,?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setString(1, palestra.getNome());
             pstm.setString(2, palestra.getDescricao());
+            pstm.setBoolean(3, palestra.isAtivo());
+            pstm.setInt(4, palestra.getId_categoria_palestra());
             
             int r = pstm.executeUpdate();
              if (r>0) {
@@ -52,8 +54,8 @@ public class PalestraDAO {
     public boolean deletarPalestra(int id) throws ClassNotFoundException {
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/banco", "", "");
-            String query = "delete from palestra where id=?";
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoxdb","root", "");
+            String query = "delete from palestra where id_palestra=?";
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setInt(1, id);
             
@@ -81,16 +83,17 @@ public class PalestraDAO {
     public boolean atualizarPalestra(Palestra palestra) throws ClassNotFoundException{
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/banco", "", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoxdb","root", "");
 
-            String query = "update palestra set nome=?, descricao=?, where id=?";
+            String query = "update palestra set nome=?, descricao=? where id_palestra=?";
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setString(1, palestra.getNome());
             pstm.setString(2, palestra.getDescricao());
+            pstm.setInt(3, palestra.getId_palestra());
             
-            ResultSet r = pstm.executeQuery();
+            int  r = pstm.executeUpdate();
 
-            if (r.next()) {
+            if (r>0) {
                 return true;
 
             } else {
@@ -111,7 +114,7 @@ public class PalestraDAO {
     public List<Palestra> getPalestra() throws ClassNotFoundException {
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/banco", "", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoxdb","root", "");
             String query = "select * from palestra ";
 
             Statement stm = conn.createStatement();
@@ -122,9 +125,11 @@ public class PalestraDAO {
 
             while (rs.next()) {
                 Palestra palestra = new Palestra();
-                palestra.setId(rs.getInt("id"));
+                palestra.setId_palestra(rs.getInt("id_palestra"));
                 palestra.setNome(rs.getString("nome"));
                 palestra.setDescricao(rs.getString("descricao"));
+               
+         
                 
 
                 listaPalestra.add(palestra);
@@ -141,5 +146,29 @@ public class PalestraDAO {
 
     }
     
+    /*public static void main(String[]args) throws ClassNotFoundException, SQLException{
+        Palestra p = new Palestra();
+        p.setNome("nome1");
+        p.setDescricao("descrição1");
+        p.setAtivo(true);
+        p.setId_palestra(7);
+        
+        
+        PalestraDAO dao = new PalestraDAO();
+        ArrayList<Palestra> lista = (ArrayList<Palestra>) dao.getPalestra();
+        
+        for(Palestra pa: lista){
+            System.out.println("nome " + pa.getNome() );
+        
+        }
+        
+        
+        
+        
+      
+        
     
+    }*/
+
+ 
 }
