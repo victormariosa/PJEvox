@@ -10,16 +10,18 @@ package br.senac.ti.Evox.bean;
  * @author Senacrio
  */
 public class Palestra {
-    private int id_categoria ;
+    private int id_palestra ;
     private String nome;
     private String descricao;
     private boolean ativo;
+    private int id_categoria_palestra; 
 
-    public int getId_categoria() {
-        return id_categoria;
+    
+    public int getId_palestra() {
+        return id_palestra;
     }
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setId_palestra(int id_palestra) {
+        this.id_palestra = id_palestra;
     }
     
     public String getNome() {
@@ -48,9 +50,24 @@ public class Palestra {
     }
 
     /**
-     * @return the id_categoria
+     * @return the id_categoria_palestra
      */
-    
+    public int getId_categoria_palestra() {
+        return id_categoria_palestra;
+    }
+
+    /**
+     * @param id_categoria_palestra the id_categoria_palestra to set
+     */
+    public void setId_categoria_palestra(int id_categoria_palestra) {
+        this.id_categoria_palestra = id_categoria_palestra;
+    }
+
+    public void getId_categoria_palestra(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
     
 
     
