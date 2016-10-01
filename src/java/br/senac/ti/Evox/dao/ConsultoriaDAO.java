@@ -23,7 +23,7 @@ public class ConsultoriaDAO {
         PreparedStatement pstm = conn.prepareStatement(query);
         pstm.setString(1, consultoria.getNome());
         pstm.setString(2, consultoria.getDescricao());
-        pstm.setInt(3, consultoria.getAtivo());
+        pstm.setBoolean(3, consultoria.isAtivo());
             
             int r = pstm.executeUpdate();
             if(r > 0)
@@ -47,7 +47,7 @@ public class ConsultoriaDAO {
         PreparedStatement pstm = conn.prepareStatement(query);
         pstm.setString(1, consultoria.getNome());
         pstm.setString(2, consultoria.getDescricao());
-        pstm.setInt(3, consultoria.getAtivo());
+        pstm.setBoolean(3, consultoria.isAtivo());
          
             ResultSet r = pstm.executeQuery();
          
