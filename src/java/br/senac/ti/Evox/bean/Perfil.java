@@ -32,7 +32,7 @@ public class Perfil {
             this.descricao = descricao;
         }
 
-        public boolean getAtivo() {
+        public boolean isAtivo() {
             return ativo;
         }
 
