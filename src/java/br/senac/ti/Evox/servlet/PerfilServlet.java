@@ -39,35 +39,35 @@ public class PerfilServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            out.println("entrei TRY");/**/
+            
             boolean resposta;
             String respST, resultado;
             
             Perfil pf = new Perfil();
-            out.println("criei Perfil");/**/
+            
             pf.setNome(request.getParameter("txtNome"));
             pf.setDescricao(request.getParameter("txtDescricao"));
             
             respST = request.getParameter("rdbSN");
-            out.println("ja peguei as funções");/**/
+            
             PerfilDAO dao = new PerfilDAO();
-            out.println("criei PefilDAO");/**/
+            
             if(respST .equals("S")){
                 pf.setAtivo(true);
             }else if(respST .equals("N")){
                 pf.setAtivo(false);
             }
-            out.println("fiz o IF");/**/
+            
             resultado = null;
             
             resposta = dao.cadastrarPerfil(pf); 
-            out.println("executei o cadastro");/**/
+            
             if(resposta){
                 resultado = "OK";
             }else{
                 resultado = "ERRO";
             }
-            out.println("passei da resposta OK ou ERRO");/**/
+            
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
