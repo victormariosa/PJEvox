@@ -40,27 +40,30 @@ public class PerfilServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            boolean resposta;
-            String respST, resultado;
+            boolean resposta = false;
+            String op=null, respST=null, resultado=null;
             
-            Perfil pf = new Perfil();
+            Perfil CdAt = new Perfil();
             
-            pf.setNome(request.getParameter("txtNome"));
-            pf.setDescricao(request.getParameter("txtDescricao"));
-            
+            CdAt.setNome(request.getParameter("txtNome"));
+            CdAt.setDescricao(request.getParameter("txtDescricao"));
             respST = request.getParameter("rdbSN");
+            
+            Perfil busca = new Perfil();
+            
+            
             
             PerfilDAO dao = new PerfilDAO();
             
             if(respST .equals("S")){
-                pf.setAtivo(true);
+                CdAt.setAtivo(true);
             }else if(respST .equals("N")){
-                pf.setAtivo(false);
+                CdAt.setAtivo(false);
             }
             
-            resultado = null;
+            op = request.getParameter("btOp");
             
-            resposta = dao.cadastrarPerfil(pf); 
+            resposta = dao.cadastrarPerfil(CdAt); 
             
             if(resposta){
                 resultado = "OK";
