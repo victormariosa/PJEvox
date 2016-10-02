@@ -78,12 +78,12 @@ public class PerfilDAO {
         
     }
      
-     public boolean removerPerfil(int id_Perfil) throws ClassNotFoundException{
+    public boolean removerPerfil(Perfil perfil) throws ClassNotFoundException{
         try{
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
-            String query = "DELETE FROM perfil WHERE id_perfil = ?";
+            String query = "DELETE FROM perfil WHERE nome = ?";
             PreparedStatement pstm = conn.prepareStatement(query);
-            pstm.setInt(1, id_Perfil);
+            pstm.setString(1, perfil.getNome());
             
             int r = pstm.executeUpdate();
             
@@ -100,4 +100,37 @@ public class PerfilDAO {
         return false;
     }   
     
+    public Perfil recuperarEmpregado(String nome) {
+
+        try {
+            //GERENCIAR  CONEXAO
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/evoxdb",
+                    "root", "root");
+
+            String query = "SELECT * FROM empregado WHERE nome = ?";
+            PreparedStatement pstm = conn.prepareStatement(query);
+            pstm.setString(1, nome);
+
+            ResultSet rs = pstm.executeQuery();
+
+            /*while (rs.next()) {
+                Perfil perfil = new Perfil();
+                perfil.setId(rs.getInt("id_empregado"));
+                perfil.setNome(rs.getString("nome"));
+                perfil.setCargo(rs.getString("cargo"));
+                perfil.setValorHora(rs.getFloat("valor_hora"));
+                perfil.setHorasTrabalhadas(rs.getFloat("horas_trabalhadas"));
+                perfil.setSalario(rs.getFloat("salario"));
+
+                return perfil;
+
+            }*/
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
+        return null;
+
+    }
 }
