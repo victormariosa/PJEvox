@@ -15,7 +15,7 @@ public class Usuario {
     private String nome;
     private String senha;
     private boolean ativo;
-    private String users;
+     private int id_perfil;
     
     public void setNome(String nome){
         this.nome = nome;
@@ -52,15 +52,15 @@ public class Usuario {
     /**
      * @return the users
      */
-    public String getUsers() {
-        return users;
+    public int getId_perfil() {
+        return id_perfil;
     }
 
     /**
-     * @param users the users to set
+     * @param id_perfil
      */
-    public void setUsers(String users) {
-        this.users = users;
+    public void setId_perfil(int id_perfil) {
+        this.id_perfil = id_perfil;
     }
     
 }
