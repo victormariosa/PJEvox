@@ -44,7 +44,7 @@ public class CursoDAO {
          }
         return false;
     }
-     public boolean atualizarCurso(Curso curso) throws classNotFoundException, ClassNotFoundException{
+     public boolean atualizarCurso(Curso curso) throws ClassNotFoundException, ClassNotFoundException{
          try{
              Class.forName("com.mysql.jdbc.Driver");
              Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/evoxdb", "root","");
@@ -65,7 +65,7 @@ public class CursoDAO {
           }
          return false;
      }
-     public boolean deletarCurso(Curso curso) throws classNotfoundException, ClassNotFoundException, SQLException{
+     public boolean deletarCurso(Curso curso) throws ClassNotFoundException, ClassNotFoundException, SQLException{
          try{
              Class.forName("com.mysql.jdc.Driver");
              Connection conn= DriverManager.getConnection("jdbc:mysql://localhost/evoxdb", "root","");
