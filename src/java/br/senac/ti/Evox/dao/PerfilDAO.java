@@ -25,7 +25,7 @@ public class PerfilDAO {
     public boolean cadastrarPerfil(Perfil perfil) throws ClassNotFoundException{
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:8081/evoxdb","root","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
             
             String query = "INSERT INTO perfil (nome, descricao, ativo) VALUES (?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(query);
@@ -52,15 +52,16 @@ public class PerfilDAO {
         return false;
     }
     
-     public boolean alterarPerfil(Perfil perfil) throws ClassNotFoundException{
+     public boolean alterarPerfil(int id_perfil) throws ClassNotFoundException{
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:8081/evoxdb","root","");
-            String query = "UPDATE perfil SET descricao = ?, ativo = ? WHERE nome = ?";
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
+            String query = "UPDATE perfil SET nome = ?, descricao = ?, ativo = ? WHERE id_Perfil = ?";
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setString (1, perfil.getNome());
             pstm.setString (2, perfil.getDescricao());
             pstm.setBoolean (3, perfil.isAtivo());
+            pstm.setInt (4, perfil.getid_Perfil());
             
             
             ResultSet r = pstm.executeQuery();
@@ -82,10 +83,10 @@ public class PerfilDAO {
     public boolean removerPerfil(Perfil perfil) throws ClassNotFoundException{
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
-            String query = "DELETE FROM perfil WHERE nome = ?";
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
+            String query = "DELETE FROM perfil WHERE id_Perfil = ?";
             PreparedStatement pstm = conn.prepareStatement(query);
-            pstm.setString(1, perfil.getNome());
+            pstm.setInt(1, perfil.getid_Perfil());
             
             int r = pstm.executeUpdate();
             

@@ -49,6 +49,7 @@ public class PerfilServlet extends HttpServlet {
             op = request.getParameter("btOp");
             
             if(op .equals("Cadastrar")){
+                
                 CdAt.setNome(request.getParameter("txtNome"));
                 CdAt.setDescricao(request.getParameter("txtDescricao"));
                 respST = request.getParameter("rdbSN");
@@ -66,23 +67,45 @@ public class PerfilServlet extends HttpServlet {
                 }else{
                     resultado = "ERRO";
                 }
+                
             }
             if(op .equals("Alterar")){
-                
+                CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
+                CdAt.setNome(request.getParameter("txtNome"));
+                CdAt.setDescricao(request.getParameter("txtDescricao"));
+                respST = request.getParameter("rdbSN");
+
                 if(respST .equals("S")){
                     CdAt.setAtivo(true);
                 }else if(respST .equals("N")){
                     CdAt.setAtivo(false);
                 }
-                
+
+                resposta = dao.alterarPerfil(CdAt); 
+
                 if(resposta){
                     resultado = "OK";
                 }else{
                     resultado = "ERRO";
                 }
+                
             }
             if(op .equals("Deletar")){
-                
+                CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
+
+                if(respST .equals("S")){
+                    CdAt.setAtivo(true);
+                }else if(respST .equals("N")){
+                    CdAt.setAtivo(false);
+                }
+
+                resposta = dao.removerPerfil(CdAt); 
+
+                if(resposta){
+                    resultado = "OK";
+                }else{
+                    resultado = "ERRO";
+                }
             }
             
             
@@ -94,7 +117,7 @@ public class PerfilServlet extends HttpServlet {
             out.println("<title>Servlet PerfilServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PerfilServlet at " + resultado + "</h1>");
+            out.println("<h1>Você Esta... " + resultado + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
