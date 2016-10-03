@@ -12,7 +12,7 @@ public class Perfil {
             return id_Perfil;
         }
 
-        public void setid_Perfil(int id_Pefil) {
+        public void setid_Perfil(int id_Perfil) {
             this.id_Perfil = id_Perfil;
         }
 
