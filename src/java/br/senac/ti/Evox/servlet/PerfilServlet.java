@@ -44,34 +44,50 @@ public class PerfilServlet extends HttpServlet {
             String op=null, respST=null, resultado=null;
             
             Perfil CdAt = new Perfil();
-            
-            CdAt.setNome(request.getParameter("txtNome"));
-            CdAt.setDescricao(request.getParameter("txtDescricao"));
-            respST = request.getParameter("rdbSN");
-            
-            Perfil busca = new Perfil();
-            
-            
-            
             PerfilDAO dao = new PerfilDAO();
-            
-            if(respST .equals("S")){
-                CdAt.setAtivo(true);
-            }else if(respST .equals("N")){
-                CdAt.setAtivo(false);
-            }
             
             op = request.getParameter("btOp");
             
-            resposta = dao.cadastrarPerfil(CdAt); 
-            
-            if(resposta){
-                resultado = "OK";
-            }else{
-                resultado = "ERRO";
+            if(op .equals("Cadastrar")){
+                CdAt.setNome(request.getParameter("txtNome"));
+                CdAt.setDescricao(request.getParameter("txtDescricao"));
+                respST = request.getParameter("rdbSN");
+
+                if(respST .equals("S")){
+                    CdAt.setAtivo(true);
+                }else if(respST .equals("N")){
+                    CdAt.setAtivo(false);
+                }
+
+                resposta = dao.cadastrarPerfil(CdAt); 
+
+                if(resposta){
+                    resultado = "OK";
+                }else{
+                    resultado = "ERRO";
+                }
+            }
+            if(op .equals("Alterar")){
+                
+                if(respST .equals("S")){
+                    CdAt.setAtivo(true);
+                }else if(respST .equals("N")){
+                    CdAt.setAtivo(false);
+                }
+                
+                if(resposta){
+                    resultado = "OK";
+                }else{
+                    resultado = "ERRO";
+                }
+            }
+            if(op .equals("Deletar")){
+                
             }
             
-            /* TODO output your page here. You may use following sample code. */
+            
+            
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");

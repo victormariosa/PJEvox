@@ -15,7 +15,7 @@
         <form action="PerfilServlet"  methos="get" name="cad">
             <table>
                 <tr>
-                    <td><input type="radio" name="btOp" request="" value="Cadastrar">Cadastrar</td><td><input type="radio" name="btOp" request="" value="Atualizar">Atualizar</td><td><input type="radio" name="btOp" request="" value="Deletar">Deletar</td><td><input type="submit" value="enviar"></td>
+                    <td><input type="radio" name="btOp" request="" value="Cadastrar">Cadastrar</td><td><input type="radio" name="btOp" request="" value="Alterar">Atualizar</td><td><input type="radio" name="btOp" request="" value="Deletar">Deletar</td><td><input type="submit" value="enviar"></td>
                 </tr>
                 <tr>
                     <td><label>Nome:</label></td><td><input type="text" maxlength="30" name="txtNome" placeholder="insira o nome." required=""></td>

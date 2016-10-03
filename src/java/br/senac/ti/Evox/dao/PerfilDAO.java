@@ -25,7 +25,7 @@ public class PerfilDAO {
     public boolean cadastrarPerfil(Perfil perfil) throws ClassNotFoundException{
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:8081/evoxdb","root","");
             
             String query = "INSERT INTO perfil (nome, descricao, ativo) VALUES (?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(query);
@@ -54,8 +54,9 @@ public class PerfilDAO {
     
      public boolean alterarPerfil(Perfil perfil) throws ClassNotFoundException{
         try{
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
-            String query = "UPDATE perfil SET nome = ?, descricao = ?, ativo = ? WHERE id_perfil= ?";
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:8081/evoxdb","root","");
+            String query = "UPDATE perfil SET descricao = ?, ativo = ? WHERE nome = ?";
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setString (1, perfil.getNome());
             pstm.setString (2, perfil.getDescricao());
@@ -80,6 +81,7 @@ public class PerfilDAO {
      
     public boolean removerPerfil(Perfil perfil) throws ClassNotFoundException{
         try{
+            Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
             String query = "DELETE FROM perfil WHERE nome = ?";
             PreparedStatement pstm = conn.prepareStatement(query);
