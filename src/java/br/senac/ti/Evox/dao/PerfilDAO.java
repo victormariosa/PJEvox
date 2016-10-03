@@ -52,7 +52,7 @@ public class PerfilDAO {
         return false;
     }
     
-     public boolean alterarPerfil(int id_perfil) throws ClassNotFoundException{
+     public boolean alterarPerfil(Perfil perfil) throws ClassNotFoundException{
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
