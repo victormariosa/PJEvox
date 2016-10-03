@@ -5,8 +5,10 @@
  */
 package br.senac.ti.Evox.servlet;
 
+import br.senac.ti.Evox.dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,8 +37,15 @@ public class UsuarioServlet extends HttpServlet {
         String password = request.getParameter("txtSenha");
         String users = request.getParameter("usuarios");
 
+         UsuarioDAO dao = new UsuarioDAO();
         
-        if (login(login,password,users)) {
+        ArrayList<Usuario> lista = (ArrayList<Usuario>) dao.getUsuario();
+        
+        request.setAttribute("lista", lista);
+        request.getRequestDispatcher("/PerfilServlet").forward(request, response);
+        
+        
+        /*if (login(login,password,users)) {
             
             
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/perfilservlet");
@@ -51,7 +60,7 @@ public class UsuarioServlet extends HttpServlet {
              out.println("<font color=red>Senha ou usuário errado.</font>");
 
         }
-
+*/
     }
     
   
