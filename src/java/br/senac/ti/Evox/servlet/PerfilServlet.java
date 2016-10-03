@@ -91,13 +91,7 @@ public class PerfilServlet extends HttpServlet {
                 
             }
             if(op .equals("Deletar")){
-                CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
-
-                if(respST .equals("S")){
-                    CdAt.setAtivo(true);
-                }else if(respST .equals("N")){
-                    CdAt.setAtivo(false);
-                }
+                CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));}
 
                 resposta = dao.removerPerfil(CdAt); 
 
