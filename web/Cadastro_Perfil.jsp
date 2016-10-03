@@ -10,16 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <script>
-            function Cad(){
-            }
-        </script>
     </head>
     <body>
         <form action="PerfilServlet"  metho="get" name="cad">
             <table>
                 <tr>
-                    <td><input type="radio" name="btOp" onclick="Cad()" request="" value="Cadastrar">Cadastrar</td><td><input type="radio" name="btOp" request="" value="Alterar">Atualizar</td><td><input type="radio" name="btOp" request="" value="Deletar">Deletar</td>
+                    <td><input type="radio" name="btOp" value="Cadastrar">Cadastrar</td><td><input type="radio" name="btOp" request="" value="Alterar">Atualizar</td><td><input type="radio" name="btOp" request="" value="Deletar">Deletar</td>
                 </tr>
                 <tr>
                     <td><h1>Cadastro</h1></td>
@@ -37,7 +33,7 @@
                     <td><input type="radio" name="rdbSN" value="N">Desativado</td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="busca" value="Enviar"/></td>
+                    <td><input type="submit" value="Enviar"></td>
                 </tr>
             </table>
             <table>

@@ -39,72 +39,69 @@ public class PerfilServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            
+            out.println("entrei no try <br>");  
             boolean resposta = false;
-            String op=null, respST=null, resultado=null;
-            
+            String op = null, respST = null, resultado = null;
+
             Perfil CdAt = new Perfil();
             PerfilDAO dao = new PerfilDAO();
-            
+
             op = request.getParameter("btOp");
-            
-            if(op .equals("Cadastrar")){
-                
+
+            if (op .equals("Cadastrar")) {
+                out.println("entrei no IF <br>"); 
                 CdAt.setNome(request.getParameter("txtNome"));
                 CdAt.setDescricao(request.getParameter("txtDescricao"));
                 respST = request.getParameter("rdbSN");
 
-                if(respST .equals("S")){
+                if (respST.equals("S")) {
                     CdAt.setAtivo(true);
-                }else if(respST .equals("N")){
+                } else if (respST.equals("N")) {
                     CdAt.setAtivo(false);
                 }
 
-                resposta = dao.cadastrarPerfil(CdAt); 
+                resposta = dao.cadastrarPerfil(CdAt);
 
-                if(resposta){
+                if (resposta) {
                     resultado = "OK";
-                }else{
+                } else {
                     resultado = "ERRO";
                 }
-                
+
             }
-            if(op .equals("Alterar")){
+            if (op .equals("Alterar")) {
                 CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
                 CdAt.setNome(request.getParameter("txtNome"));
                 CdAt.setDescricao(request.getParameter("txtDescricao"));
                 respST = request.getParameter("rdbSN");
 
-                if(respST .equals("S")){
+                if (respST.equals("S")) {
                     CdAt.setAtivo(true);
-                }else if(respST .equals("N")){
+                } else if (respST.equals("N")) {
                     CdAt.setAtivo(false);
                 }
 
-                resposta = dao.alterarPerfil(CdAt); 
+                resposta = dao.alterarPerfil(CdAt);
 
-                if(resposta){
+                if (resposta) {
                     resultado = "OK";
-                }else{
+                } else {
                     resultado = "ERRO";
                 }
-                
+
             }
-            if(op .equals("Deletar")){
-                CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));}
+            if (op .equals("Deletar")) {
+                CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
 
-                resposta = dao.removerPerfil(CdAt); 
+                resposta = dao.removerPerfil(CdAt);
 
-                if(resposta){
+                if (resposta) {
                     resultado = "OK";
-                }else{
+                } else {
                     resultado = "ERRO";
                 }
             }
-            
-            
-            
-            
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -118,7 +115,6 @@ public class PerfilServlet extends HttpServlet {
             out.close();
         }
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -165,5 +161,4 @@ public class PerfilServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
