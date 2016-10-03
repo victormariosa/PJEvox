@@ -10,15 +10,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <script>
+            function Cad(){
+            }
+        </script>
     </head>
     <body>
-        <form action="PerfilServlet"  methos="get" name="cad">
+        <form action="PerfilServlet"  metho="get" name="cad">
             <table>
                 <tr>
-                    <td><input type="radio" name="btOp" request="" value="Cadastrar">Cadastrar</td><td><input type="radio" name="btOp" request="" value="Alterar">Atualizar</td><td><input type="radio" name="btOp" request="" value="Deletar">Deletar</td><td><input type="submit" value="enviar"></td>
+                    <td><input type="radio" name="btOp" onclick="Cad()" request="" value="Cadastrar">Cadastrar</td><td><input type="radio" name="btOp" request="" value="Alterar">Atualizar</td><td><input type="radio" name="btOp" request="" value="Deletar">Deletar</td>
                 </tr>
                 <tr>
-                    <td><label>Nome:</label></td><td><input type="text" maxlength="30" name="txtNome" placeholder="insira o nome." required=""></td>
+                    <td><h1>Cadastro</h1></td>
+                </tr>
+                <tr>
+                    <td><label>Nome:</label></td><td><input type="text" maxlength="30" name="txtNome" placeholder="insira o nome."></td>
                 </tr>
                 <tr>
                     <td><label>Descrição:</label></td><td><textarea cols="21" name="txtDescricao"></textarea></td>
@@ -30,7 +37,28 @@
                     <td><input type="radio" name="rdbSN" value="N">Desativado</td>
                 </tr>
                 <tr>
-                    <td>ID:<input type="txt" name="txt" value=""></td><td><input type="submit" name="busca" value="busca"/></td>
+                    <td><input type="submit" name="busca" value="Enviar"/></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td><h1>Buscar Perfil</h1></td>
+                </tr>
+                <tr>
+                    <td>ID:</td><td><input type="number" name="Bid" value=""></td>
+                </tr>
+                <tr>
+                    <td>Nome:</td><td><input type="txt" disabled="" name="Bnome" value=""></td>
+                </tr>
+                <tr>
+                    <td>Descrição:</td><td><input type="txt" disabled="" name="Bdescricao" value=""></td>
+                </tr>
+                <tr>
+                    <td>Estatus:</td><td><input type="txt" disabled="" name="Bestatus" value=""></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="busca" value="Buscar"/></td>
+                </tr>
             </table>
         </form>
     </body>
