@@ -38,7 +38,7 @@
                     <td><label>Descrição:</label></td><td><textarea cols="21" name="txtDescricao"></textarea></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="rdbSN" value="S">Ativo</td><td><input type="radio" name="rdbSN" value="N">Desativado</td>
+                    <td>Estatus:</td><td><input type="radio" name="rdbSN" value="S">Ativo</td><td><input type="radio" name="rdbSN" value="N">Desativado</td>
                 </tr>
                 <tr>
                     
