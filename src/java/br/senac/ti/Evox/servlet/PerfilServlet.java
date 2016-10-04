@@ -39,7 +39,7 @@ public class PerfilServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            out.println("entrei no try <br>");  
+            out.println("1");
             boolean resposta = false;
             String op = null, respST = null, resultado = null;
 
@@ -48,8 +48,8 @@ public class PerfilServlet extends HttpServlet {
 
             op = request.getParameter("btOp");
 
-            if (op .equals("Cadastrar")) {
-                out.println("entrei no IF <br>"); 
+            if (op.equals("Cadastrar")) {
+                out.println("entrei no IF <br>");
                 CdAt.setNome(request.getParameter("txtNome"));
                 CdAt.setDescricao(request.getParameter("txtDescricao"));
                 respST = request.getParameter("rdbSN");
@@ -67,20 +67,22 @@ public class PerfilServlet extends HttpServlet {
                 } else {
                     resultado = "ERRO";
                 }
-
             }
-            if (op .equals("Alterar")) {
+            if (op.equals("Alterar")) {
                 CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
-                CdAt.setNome(request.getParameter("txtNome"));
-                CdAt.setDescricao(request.getParameter("txtDescricao"));
-                respST = request.getParameter("rdbSN");
-
+                CdAt.setNome(request.getParameter("Bnome"));
+                CdAt.setDescricao(request.getParameter("Bdescricao"));
+                respST = request.getParameter("Bestatus");
+                
+                out.println("2");
+                
                 if (respST.equals("S")) {
+                out.println("3");
                     CdAt.setAtivo(true);
                 } else if (respST.equals("N")) {
                     CdAt.setAtivo(false);
                 }
-
+                out.println("4");
                 resposta = dao.alterarPerfil(CdAt);
 
                 if (resposta) {
@@ -88,9 +90,9 @@ public class PerfilServlet extends HttpServlet {
                 } else {
                     resultado = "ERRO";
                 }
-
+                out.println("5");
             }
-            if (op .equals("Deletar")) {
+            if (op.equals("Deletar")) {
                 CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
 
                 resposta = dao.removerPerfil(CdAt);
@@ -115,6 +117,7 @@ public class PerfilServlet extends HttpServlet {
             out.close();
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

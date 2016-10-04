@@ -1,44 +1,42 @@
 package br.senac.ti.Evox.bean;
 
 public class Perfil {
-    
-        
-        private int id_Perfil;
-        private String nome;
-        private String descricao; 
-        private boolean ativo;
 
-        public int getid_Perfil() {
-            return id_Perfil;
-        }
+    private int id_Perfil;
+    private String nome;
+    private String descricao;
+    private boolean ativo;
 
-        public void setid_Perfil(int id_Perfil) {
-            this.id_Perfil = id_Perfil;
-        }
+    public int getid_Perfil() {
+        return id_Perfil;
+    }
 
-        public String getNome() {
-            return nome;
-        }
+    public void setid_Perfil(int id_Perfil) {
+        this.id_Perfil = id_Perfil;
+    }
 
-        public void setNome(String nome) {
-            this.nome = nome;
-        }
+    public String getNome() {
+        return nome;
+    }
 
-        public String getDescricao() {
-            return descricao;
-        }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-        public void setDescricao(String descricao) {
-            this.descricao = descricao;
-        }
+    public String getDescricao() {
+        return descricao;
+    }
 
-        public boolean isAtivo() {
-            return ativo;
-        }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-        public void setAtivo(boolean ativo) {
-            this.ativo = ativo;
-        }
-        
-    
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
 }

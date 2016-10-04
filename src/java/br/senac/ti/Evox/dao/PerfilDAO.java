@@ -5,7 +5,6 @@
  */
 package br.senac.ti.Evox.dao;
 
-
 import br.senac.ti.Evox.bean.Perfil;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,88 +20,81 @@ import java.util.ArrayList;
  * @author Senacrio
  */
 public class PerfilDAO {
-    
-    public boolean cadastrarPerfil(Perfil perfil) throws ClassNotFoundException{
-        try{
+
+    public boolean cadastrarPerfil(Perfil perfil) throws ClassNotFoundException {
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
-            
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb", "root", "");
+
             String query = "INSERT INTO perfil (nome, descricao, ativo) VALUES (?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(query);
-            pstm.setString (1, perfil.getNome());
-            pstm.setString (2, perfil.getDescricao());
-            pstm.setBoolean (3, perfil.isAtivo());
-            
-            int  r = pstm.executeUpdate();
-             
+            pstm.setString(1, perfil.getNome());
+            pstm.setString(2, perfil.getDescricao());
+            pstm.setBoolean(3, perfil.isAtivo());
 
-           if(r>0)
-           {
-            return true;
-                    
-           }else{
-            
-             return false;
-           
-           }
-           
+            int r = pstm.executeUpdate();
+
+            if (r > 0) {
+                return true;
+
+            } else {
+
+                return false;
+
+            }
+
         } catch (SQLException ex) {
-            ex.printStackTrace();   
+            ex.printStackTrace();
         }
         return false;
     }
-    
-     public boolean alterarPerfil(Perfil perfil) throws ClassNotFoundException{
-        try{
+
+    public boolean alterarPerfil(Perfil perfil) throws ClassNotFoundException {
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
-            String query = "UPDATE perfil SET nome = ?, descricao = ?, ativo = ? WHERE id_Perfil = ?";
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb", "root", "");
+            String query = "UPDATE perfil SET (nome = ?, descricao = ?, ativo = ?) WHERE id_perfil = ?";
             PreparedStatement pstm = conn.prepareStatement(query);
-            pstm.setString (1, perfil.getNome());
-            pstm.setString (2, perfil.getDescricao());
-            pstm.setBoolean (3, perfil.isAtivo());
-            pstm.setInt (4, perfil.getid_Perfil());
-            
-            
-            ResultSet r = pstm.executeQuery();
-            
-            if(r.next())
-            {
-                return true;
-                
-            }else{
-                return false;
-            }
-            } catch (SQLException ex) {
-            ex.printStackTrace();
-        } 
-        return false;
-        
-    }
-     
-    public boolean removerPerfil(Perfil perfil) throws ClassNotFoundException{
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
-            String query = "DELETE FROM perfil WHERE id_Perfil = ?";
-            PreparedStatement pstm = conn.prepareStatement(query);
-            pstm.setInt(1, perfil.getid_Perfil());
-            
+            pstm.setString(1, perfil.getNome());
+            pstm.setString(2, perfil.getDescricao());
+            pstm.setBoolean(3, perfil.isAtivo());
+            pstm.setInt(4, perfil.getid_Perfil());
+
             int r = pstm.executeUpdate();
-            
-            if(r>0)
-            {
+
+            if (r > 0) {
                 return true;
-                
-            }else{
+            } else {
                 return false;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } 
+        }
         return false;
-    }   
-    
+    }
+
+    public boolean removerPerfil(Perfil perfil) throws ClassNotFoundException {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb", "root", "");
+            String query = "DELETE FROM perfil WHERE id_Perfil = ?";
+            PreparedStatement pstm = conn.prepareStatement(query);
+            pstm.setInt(1, perfil.getid_Perfil());
+
+            int r = pstm.executeUpdate();
+
+            if (r > 0) {
+                return true;
+
+            } else {
+                return false;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
     public Perfil recuperarEmpregado(String nome) {
 
         try {
@@ -128,7 +120,6 @@ public class PerfilDAO {
                 return perfil;
 
             }*/
-
         } catch (SQLException ex) {
             ex.printStackTrace();
 
