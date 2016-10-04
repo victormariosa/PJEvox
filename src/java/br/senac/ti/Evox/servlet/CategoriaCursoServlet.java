@@ -6,8 +6,6 @@
 package br.senac.ti.Evox.servlet;
 
 import br.senac.ti.Evox.bean.CategoriaCurso;
-import br.senac.ti.Evox.bean.Perfil;
-import br.senac.ti.Evox.dao.PerfilDAO;
 import br.senac.ti.Evox.dao.CategoriaCursoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -59,7 +57,7 @@ public class CategoriaCursoServlet extends HttpServlet {
                     cad.setAtivo(false);
                 }
 
-                resposta = dao.cadastrarCurso(cad); 
+                resposta = dao.cadastrarCategoria(cad); 
 
                 if(resposta){
                     resultado = "OK";
