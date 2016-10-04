@@ -53,7 +53,8 @@ public class PerfilDAO {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb", "root", "");
-            String query = "UPDATE perfil SET (nome = ?, descricao = ?, ativo = ?) WHERE id_perfil = ?";
+            
+            String query = "UPDATE perfil SET nome = ?, descricao = ?, ativo = ? WHERE id_perfil = ?";
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setString(1, perfil.getNome());
             pstm.setString(2, perfil.getDescricao());
