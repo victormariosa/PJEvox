@@ -9,6 +9,7 @@ import br.senac.ti.Evox.bean.Usuario;
 import br.senac.ti.Evox.dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Senacrio
  */
-@WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
+@WebServlet(name = "UsuarioServlet", urlPatterns = {"/usuarioservlet"})
 public class UsuarioServlet extends HttpServlet {
 
     /**
@@ -35,14 +36,21 @@ public class UsuarioServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
         String login = request.getParameter("txtLogin");
         String password = request.getParameter("txtSenha");
         String perfil = request.getParameter("usuarios");
 
-         UsuarioDAO dao = new UsuarioDAO();
+        Usuario usuario = new Usuario();
+        usuario.setNome(login);
+        usuario.setSenha(password);
+        usuario.setId_perfil(Integer.parseInt(perfil));
         
-        ArrayList<Usuario> lista = (ArrayList<Usuario>) dao.getUsuario();
+         UsuarioDAO dao = new UsuarioDAO();
+         
+         dao.adicionarUsuario(usuario);
+        
+       /* ArrayList<Usuario> lista = (ArrayList<Usuario>) dao.getUsuario();
         
         request.setAttribute("lista", lista);
         request.getRequestDispatcher("/PerfilServlet").forward(request, response);
@@ -86,6 +94,8 @@ public class UsuarioServlet extends HttpServlet {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -103,6 +113,8 @@ public class UsuarioServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
