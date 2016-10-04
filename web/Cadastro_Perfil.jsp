@@ -61,7 +61,7 @@
                     <td>Descrição:</td><td><input type="txt" name="Bdescricao" value=""></td>
                 </tr>
                 <tr>
-                    <td>Estatus:</td><td><input type="radio" name="Bestatus" value="S">Ativo</td><td><input type="radio" name="Bestatus" value="N">Desativado</td>
+                    <td>Estatuss:</td><td><input type="radio" name="Bestatus" value="S">Ativo</td><td><input type="radio" name="Bestatus" value="N">Desativado</td>
                 </tr>
                 <tr>
                     <td><input type="submit" name="busca" value="Buscar"/></td>
