@@ -26,7 +26,7 @@ public class CategoriaCursoDAO {
    *public Object txtsenha;
   */
     
-    boolean cadastrarCategoria(CategoriaCurso categoriaCurso)throws ClassNotFoundException{
+   public boolean cadastrarCategoria(CategoriaCurso categoriaCurso)throws ClassNotFoundException{
        try{
            Class.forName("com.mysql.jdbc.Driver");
            
