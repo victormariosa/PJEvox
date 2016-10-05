@@ -18,16 +18,20 @@
         }
     </style>
     <script>
-        function buscar() {
-
+        function buscar(el) {
+               document.getElementById(el).style.display = 'block';
         }
     </script>
     <body>
         <form action="PerfilServlet"  metho="get" name="cad">
             <table>
                 <tr>
-                    <td><input type="radio" name="btOp" value="Cadastrar">Cadastrar</td><td><input type="radio" name="btOp" request="" value="Alterar">Atualizar</td><td><input type="radio" name="btOp" request="" value="Deletar">Deletar</td><td><input type="radio" name="btOp" value="Cadastrar">Buscar</td>
+                    <td><input type="radio" name="btOp" onclick="buscar('cacao')" value="Cadastrar">Cadastrar</td><td><input type="radio" name="btOp" request="" value="Alterar">Atualizar</td><td><input type="radio" name="btOp" request="" value="Deletar">Deletar</td><td><input type="radio" name="btOp" value="Cadastrar">Buscar</td>
                 </tr>
+            </table>
+            <div id="cacao" style="display: none;">
+            <table>
+                
                 <tr>
                     <td><h1>Cadastro</h1></td>
                 </tr>
@@ -44,9 +48,11 @@
                     
                 </tr>
                 <tr>
-                    <td><input type="submit" value="Enviar"></td>
+                    <td><input type="submit" name="BtOp" value="Enviar"></td>
                 </tr>
             </table>
+                </div>
+                <div>
             <table>
                 <tr>
                     <td><h1>Buscar Perfil</h1></td>
@@ -67,6 +73,7 @@
                     <td><input type="submit" name="busca" value="Buscar"/></td>
                 </tr>
             </table>
+                    
         </form>
     </body>
 </html>

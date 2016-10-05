@@ -119,7 +119,6 @@ public class PerfilDAO {
                 perfil.setSalario(rs.getFloat("salario"));
 
                 return perfil;
-
             }*/
         } catch (SQLException ex) {
             ex.printStackTrace();

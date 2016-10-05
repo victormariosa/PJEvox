@@ -48,7 +48,7 @@ public class PerfilServlet extends HttpServlet {
 
             op = request.getParameter("btOp");
 
-            if (op.equals("Cadastrar")) {
+            if (op.equals("Enviar")) {
                 out.println("entrei no IF <br>");
                 CdAt.setNome(request.getParameter("txtNome"));
                 CdAt.setDescricao(request.getParameter("txtDescricao"));
@@ -67,40 +67,41 @@ public class PerfilServlet extends HttpServlet {
                 } else {
                     resultado = "ERRO";
                 }
-            }
-            if (op.equals("Alterar")) {
-                CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
-                CdAt.setNome(request.getParameter("Bnome"));
-                CdAt.setDescricao(request.getParameter("Bdescricao"));
-                respST = request.getParameter("Bestatus");
-                
-                out.println("2");
-                
-                if (respST.equals("S")) {
-                out.println("3");
-                    CdAt.setAtivo(true);
-                } else if (respST.equals("N")) {
-                    CdAt.setAtivo(false);
+            }else{
+                if (op.equals("Alterar")) {
+                    CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
+                    CdAt.setNome(request.getParameter("Bnome"));
+                    CdAt.setDescricao(request.getParameter("Bdescricao"));
+                    respST = request.getParameter("Bestatus");
+
+                    out.println("2");
+
+                    if (respST.equals("S")) {
+                    out.println("3");
+                        CdAt.setAtivo(true);
+                    } else if (respST.equals("N")) {
+                        CdAt.setAtivo(false);
+                    }
+                    out.println("4");
+                    resposta = dao.alterarPerfil(CdAt);
+
+                    if (resposta) {
+                        resultado = "OK";
+                    } else {
+                        resultado = "ERRO";
+                    }
+                    out.println("5");
                 }
-                out.println("4");
-                resposta = dao.alterarPerfil(CdAt);
+                if (op.equals("Deletar")) {
+                    CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
 
-                if (resposta) {
-                    resultado = "OK";
-                } else {
-                    resultado = "ERRO";
-                }
-                out.println("5");
-            }
-            if (op.equals("Deletar")) {
-                CdAt.setid_Perfil(Integer.parseInt(request.getParameter("Bid")));
+                    resposta = dao.removerPerfil(CdAt);
 
-                resposta = dao.removerPerfil(CdAt);
-
-                if (resposta) {
-                    resultado = "OK";
-                } else {
-                    resultado = "ERRO";
+                    if (resposta) {
+                        resultado = "OK";
+                    } else {
+                        resultado = "ERRO";
+                    }
                 }
             }
 
