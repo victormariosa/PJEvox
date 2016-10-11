@@ -8,7 +8,7 @@ package br.senac.ti.Evox.bean;
 public class CategoriaCurso {
     private int id_categoria;
     private String nome;
-    private String senha;
+    private String descricao;
     private boolean ativo;
 
     public int getId_categoria() {
@@ -27,12 +27,12 @@ public class CategoriaCurso {
         this.nome = nome;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public boolean isAtivo() {
