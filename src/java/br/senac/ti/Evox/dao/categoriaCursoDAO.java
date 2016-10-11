@@ -57,8 +57,54 @@ public class categoriaCursoDAO {
     }
     
      public boolean alterarCategoria(CategoriaCurso categoriaCurso){
-         Connection conect = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
          
-         String query = "UPDATE categoriacurso SET nome=?, descricao=?, ativo=?";
+         try{
+            Connection conect = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
+
+            String query = "UPDATE categoriacurso SET nome=?, descricao=?, ativo=?";
+
+            PreparedStatement pstm = conect.prepareStatement(query);
+            pstm.setString(1, categoriaCurso.getNome());
+            pstm.setString(2, categoriaCurso.getDescricao());
+            pstm.setBoolean(3, categoriaCurso.isAtivo());
+
+
+            int result = pstm.executeUpdate();
+
+            if(result>0){
+
+                return true;
+            }
+            else{
+                return false;
+            }
+            
+         } catch (SQLException ex) {
+            ex.printStackTrace();   
+        }
+        return false;
     }
+     
+     public boolean removerCategoria(int id_categoria_curso){
+          try {
+            //GERENCIAR  CONEXAO
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
+            String query = "DELETE FROM categoriacurso WHERE id_categoria_curso = ?";
+            PreparedStatement pstm = conn.prepareStatement(query);
+            pstm.setInt(1, id_categoria_curso);
+            
+            int result = pstm.executeUpdate();
+            
+            if(result > 0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        catch(SQLException ex){
+             ex.printStackTrace(); 
+        }
+        return false;
+     }
 }
