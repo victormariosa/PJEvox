@@ -87,7 +87,6 @@ public class categoriaCursoDAO {
      
      public boolean removerCategoria(int id_categoria_curso){
           try {
-            //GERENCIAR  CONEXAO
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
             String query = "DELETE FROM categoriacurso WHERE id_categoria_curso = ?";
             PreparedStatement pstm = conn.prepareStatement(query);
