@@ -4,9 +4,17 @@
         <servlet-name>NewServlet2</servlet-name>
         <servlet-class>NewServlet2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Cursoservlet</servlet-name>
+        <servlet-class>br.senac.ti.Evox.servlet.Cursoservlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet2</servlet-name>
         <url-pattern>/NewServlet2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cursoservlet</servlet-name>
+        <url-pattern>/Cursoservlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
