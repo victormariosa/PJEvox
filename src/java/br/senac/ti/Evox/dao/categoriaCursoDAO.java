@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  *
  * @author Victor
  */
-public class categoriaCursoDAO {
+public class CategoriaCursoDAO {
   /* public Object txtNome;
    *public Object txtsenha;
   */
