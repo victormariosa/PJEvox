@@ -36,7 +36,7 @@
                     <td>ID:<input type="txt" name="txt" value=""></td><td><input type="submit" name="busca" value="busca"/></td>
             </table>
             
-            <table name="Alterar">
+            <table name="Buscar">
                 
                 <tr>
                     <td><h1>Buscar categoria</h1></td>
