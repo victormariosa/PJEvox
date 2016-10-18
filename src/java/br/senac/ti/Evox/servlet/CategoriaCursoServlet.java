@@ -60,8 +60,10 @@ public class CategoriaCursoServlet extends HttpServlet {
                 resposta = dao.cadastrarCategoria(cad); 
 
                 if(resposta){
+                    out.println("Cadastrado com sucasso!");
                     resultado = "OK";
                 }else{
+                    out.println("Falha no cadastro!");
                     resultado = "ERRO";
                 }
             }

@@ -32,7 +32,7 @@ public class CategoriaCursoDAO {
            
            Connection conect = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
            
-           String query = "INSERT INTO categoriacurso (nome, descricao, ativo) VALUES (?,?,?)";
+           String query = "INSERT INTO categoria_curso (nome, descricao, ativo) VALUES (?,?,?)";
            PreparedStatement pstm = conect.prepareStatement(query);
            pstm.setString(1, categoriaCurso.getNome());
            pstm.setString(2, categoriaCurso.getDescricao());
@@ -61,7 +61,7 @@ public class CategoriaCursoDAO {
          try{
             Connection conect = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
 
-            String query = "UPDATE categoriacurso SET nome=?, descricao=?, ativo=?";
+            String query = "UPDATE categoria_curso SET nome=?, descricao=?, ativo=?";
 
             PreparedStatement pstm = conect.prepareStatement(query);
             pstm.setString(1, categoriaCurso.getNome());
@@ -88,7 +88,7 @@ public class CategoriaCursoDAO {
      public boolean removerCategoria(int id_categoria_curso){
           try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/evoxdb","root","");
-            String query = "DELETE FROM categoriacurso WHERE id_categoria_curso = ?";
+            String query = "DELETE FROM categoria_curso WHERE id_categoria_curso = ?";
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setInt(1, id_categoria_curso);
             

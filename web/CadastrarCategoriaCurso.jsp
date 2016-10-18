@@ -15,7 +15,7 @@
         <form action="CategoriaCursoServlet"  method="get" name="cad">
             <table name="Cadastrar">
                 <tr>
-                    <td><input type="radio" name="botao" request="" value="Cadastrar">Cadastrar</td><td><input type="radio" name="botao" request="" value="Alterar">Atualizar</td><td><input type="radio" name="botao" request="" value="Deletar">Deletar</td>
+                    <td><input type="radio" name="botao" request="" value="Cadastrar">Cadastrar</td><td><input type="radio" name="botao" request="" value="Buscar">Buscar</td>
                 </tr>
                 <tr>
                     <td><h1>Cadastrar</h1></td>
@@ -51,11 +51,11 @@
                     <td><label>Descrição:</label></td><td><textarea cols="21" name="txtDescricao"></textarea></td>
                 </tr>
                 <tr>
-                    <td><label>Status:</label></td><td><input type="radio" name="condicao" value="S">Ativo</td><td><input type="radio" name="condicao" value="N">Inativo</td>
+                    <td><label>Status:</label></td><td><input type="radio" name="condicao" value="S">Ativo</td><td><input type="radio" name="condicao" value="N">Inativo</td><br><br>
                 </tr>
                 
                 <tr>
-                   <td><input type="submit" name="busca" value="buscar"/></td>
+                   <td><input type="submit" name="busca" value="buscar"/></td><td><input type="radio" name="botao" request="" value="Alterar">Atualizar</td><td><input type="radio" name="botao" request="" value="Deletar">Deletar</td>
             </table>
         </form>
     </body>
